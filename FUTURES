@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 29 05:45:28 2021
+
+@author: jcjoyce
+"""
+
+import requests 
+
+FUTURES_SUNRISE = 'http://www.suntoday.org/sunrise-sunset/tomorrow.html'
+
+SUN_POWER = {'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'}
+
+SUN_METRICS = requests.get(FUTURES_SUNRISE)
+
+print(SUN_METRICS.request.headers)
+
+
+#www.suntoday.org/sunrise-sunset/tomorrow.html
+
+
+import requests 
+from bs4 import BeautifulSoup 
+
+HTML_PATHFINDER = '###'
+HTMLDOCUMENT = requests.get(HTML_PATHFINDER).content
+
+parsed_html = BeautifulSoup(HTMLDOCUMENT, 'lxml')
+
+SUNRISE = parsed_html.find_all('tr')
+#print(SUNRISE)
+
+ALLWINS = []
+for row in SUNRISE:
+    SUNSHINE = []
+    for x in row.find_all('td'):
+        SUNSHINE.append(x.text)
+        
+        ALLWINS.append(SUNSHINE)
+        
+#print(ALLWINS)
+
+#print(ALLWINS[1])
+
+ARAYOFSUNSHINE = [i for i in (ALLWINS)]
+mySum = 0
+for element in ARAYOFSUNSHINE:
+    mySum = element
+    #print(mySum)
+    
+
+MMM = len(ARAYOFSUNSHINE)
+for i in range(MMM): 
+    MMM = element
+    print(MMM)
